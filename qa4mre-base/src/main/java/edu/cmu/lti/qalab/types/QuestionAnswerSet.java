@@ -12,8 +12,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Mon May 13 14:41:33 EDT 2013
- * XML source: /media/alkesh/Windows7_OS/Users/alkesh/git/qa4mre-cse/qa4mre-base/src/main/resources/TypeSystemDescriptor.xml
+ * Updated by JCasGen Tue Nov 05 22:09:09 EST 2013
+ * XML source: /Users/troy/git/hw5-team10/qa4mre-base/src/main/resources/TypeSystemDescriptor.xml
  * @generated */
 public class QuestionAnswerSet extends Annotation {
   /** @generated
@@ -115,6 +115,24 @@ public class QuestionAnswerSet extends Annotation {
     if (QuestionAnswerSet_Type.featOkTst && ((QuestionAnswerSet_Type)jcasType).casFeat_candidateSentenceList == null)
       jcasType.jcas.throwFeatMissing("candidateSentenceList", "edu.cmu.lti.qalab.types.QuestionAnswerSet");
     jcasType.ll_cas.ll_setRefValue(addr, ((QuestionAnswerSet_Type)jcasType).casFeatCode_candidateSentenceList, jcasType.ll_cas.ll_getFSRef(v));}    
+   
+    
+  //*--------------*
+  //* Feature: candidateSets
+
+  /** getter for candidateSets - gets The set of all candidate sentences based on each answer option.
+   * @generated */
+  public FSList getCandidateSets() {
+    if (QuestionAnswerSet_Type.featOkTst && ((QuestionAnswerSet_Type)jcasType).casFeat_candidateSets == null)
+      jcasType.jcas.throwFeatMissing("candidateSets", "edu.cmu.lti.qalab.types.QuestionAnswerSet");
+    return (FSList)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((QuestionAnswerSet_Type)jcasType).casFeatCode_candidateSets)));}
+    
+  /** setter for candidateSets - sets The set of all candidate sentences based on each answer option. 
+   * @generated */
+  public void setCandidateSets(FSList v) {
+    if (QuestionAnswerSet_Type.featOkTst && ((QuestionAnswerSet_Type)jcasType).casFeat_candidateSets == null)
+      jcasType.jcas.throwFeatMissing("candidateSets", "edu.cmu.lti.qalab.types.QuestionAnswerSet");
+    jcasType.ll_cas.ll_setRefValue(addr, ((QuestionAnswerSet_Type)jcasType).casFeatCode_candidateSets, jcasType.ll_cas.ll_getFSRef(v));}    
   }
 
     
