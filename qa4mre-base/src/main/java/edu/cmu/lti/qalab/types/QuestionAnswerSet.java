@@ -12,7 +12,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Tue Nov 05 22:09:09 EST 2013
+ * Updated by JCasGen Sat Nov 09 21:17:39 EST 2013
  * XML source: /Users/troy/git/hw5-team10/qa4mre-base/src/main/resources/TypeSystemDescriptor.xml
  * @generated */
 public class QuestionAnswerSet extends Annotation {
@@ -102,14 +102,14 @@ public class QuestionAnswerSet extends Annotation {
   //*--------------*
   //* Feature: candidateSentenceList
 
-  /** getter for candidateSentenceList - gets 
+  /** getter for candidateSentenceList - gets Deprecated
    * @generated */
   public FSList getCandidateSentenceList() {
     if (QuestionAnswerSet_Type.featOkTst && ((QuestionAnswerSet_Type)jcasType).casFeat_candidateSentenceList == null)
       jcasType.jcas.throwFeatMissing("candidateSentenceList", "edu.cmu.lti.qalab.types.QuestionAnswerSet");
     return (FSList)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((QuestionAnswerSet_Type)jcasType).casFeatCode_candidateSentenceList)));}
     
-  /** setter for candidateSentenceList - sets  
+  /** setter for candidateSentenceList - sets Deprecated 
    * @generated */
   public void setCandidateSentenceList(FSList v) {
     if (QuestionAnswerSet_Type.featOkTst && ((QuestionAnswerSet_Type)jcasType).casFeat_candidateSentenceList == null)

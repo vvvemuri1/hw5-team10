@@ -355,7 +355,7 @@
         </featureDescription>
         <featureDescription>
           <name>candidateSentenceList</name>
-          <description/>
+          <description>Deprecated</description>
           <rangeTypeName>uima.cas.FSList</rangeTypeName>
           <elementType>edu.cmu.lti.qalab.types.CandidateSentence</elementType>
         </featureDescription>
@@ -394,9 +394,15 @@
         </featureDescription>
         <featureDescription>
           <name>candAnswerList</name>
-          <description/>
+          <description>Deprecated
+</description>
           <rangeTypeName>uima.cas.FSList</rangeTypeName>
           <elementType>edu.cmu.lti.qalab.types.CandidateAnswer</elementType>
+        </featureDescription>
+      <featureDescription>
+          <name>candAnswer</name>
+          <description/>
+          <rangeTypeName>edu.cmu.lti.qalab.types.CandidateAnswer</rangeTypeName>
         </featureDescription>
       </features>
     </typeDescription>

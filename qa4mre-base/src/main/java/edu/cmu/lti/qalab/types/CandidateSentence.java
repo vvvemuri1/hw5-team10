@@ -14,7 +14,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Tue Nov 05 22:09:09 EST 2013
+ * Updated by JCasGen Sat Nov 09 21:17:39 EST 2013
  * XML source: /Users/troy/git/hw5-team10/qa4mre-base/src/main/resources/TypeSystemDescriptor.xml
  * @generated */
 public class CandidateSentence extends Annotation {
@@ -140,19 +140,39 @@ public class CandidateSentence extends Annotation {
   //*--------------*
   //* Feature: candAnswerList
 
-  /** getter for candAnswerList - gets 
+  /** getter for candAnswerList - gets Deprecated
+
    * @generated */
   public FSList getCandAnswerList() {
     if (CandidateSentence_Type.featOkTst && ((CandidateSentence_Type)jcasType).casFeat_candAnswerList == null)
       jcasType.jcas.throwFeatMissing("candAnswerList", "edu.cmu.lti.qalab.types.CandidateSentence");
     return (FSList)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((CandidateSentence_Type)jcasType).casFeatCode_candAnswerList)));}
     
-  /** setter for candAnswerList - sets  
+  /** setter for candAnswerList - sets Deprecated
+ 
    * @generated */
   public void setCandAnswerList(FSList v) {
     if (CandidateSentence_Type.featOkTst && ((CandidateSentence_Type)jcasType).casFeat_candAnswerList == null)
       jcasType.jcas.throwFeatMissing("candAnswerList", "edu.cmu.lti.qalab.types.CandidateSentence");
     jcasType.ll_cas.ll_setRefValue(addr, ((CandidateSentence_Type)jcasType).casFeatCode_candAnswerList, jcasType.ll_cas.ll_getFSRef(v));}    
+   
+    
+  //*--------------*
+  //* Feature: candAnswer
+
+  /** getter for candAnswer - gets 
+   * @generated */
+  public CandidateAnswer getCandAnswer() {
+    if (CandidateSentence_Type.featOkTst && ((CandidateSentence_Type)jcasType).casFeat_candAnswer == null)
+      jcasType.jcas.throwFeatMissing("candAnswer", "edu.cmu.lti.qalab.types.CandidateSentence");
+    return (CandidateAnswer)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((CandidateSentence_Type)jcasType).casFeatCode_candAnswer)));}
+    
+  /** setter for candAnswer - sets  
+   * @generated */
+  public void setCandAnswer(CandidateAnswer v) {
+    if (CandidateSentence_Type.featOkTst && ((CandidateSentence_Type)jcasType).casFeat_candAnswer == null)
+      jcasType.jcas.throwFeatMissing("candAnswer", "edu.cmu.lti.qalab.types.CandidateSentence");
+    jcasType.ll_cas.ll_setRefValue(addr, ((CandidateSentence_Type)jcasType).casFeatCode_candAnswer, jcasType.ll_cas.ll_getFSRef(v));}    
   }
 
     
