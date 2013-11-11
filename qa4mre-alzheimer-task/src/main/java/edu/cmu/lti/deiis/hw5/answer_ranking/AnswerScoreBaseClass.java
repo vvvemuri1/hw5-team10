@@ -99,8 +99,8 @@ public class AnswerScoreBaseClass extends JCasAnnotator_ImplBase {
 			}
 		}
 		
-		if(candSentNouns.size()+choiceNouns.size()!=0 )
-			scoreNounPhrase=nnNounPhrase/((double)candSentNouns.size()+ choiceNouns.size());
+		if(candSentNouns.size()+choiceNouns.size()-nnNounPhrase!=0 )
+			scoreNounPhrase=nnNounPhrase/((double)candSentNouns.size()+ choiceNouns.size()-nnNounPhrase);
 		
 
 		for (int k = 0; k < candSentNers.size(); k++) {
@@ -111,8 +111,8 @@ public class AnswerScoreBaseClass extends JCasAnnotator_ImplBase {
 				}
 			}
 		}
-		if(candSentNers.size()+choiceNers.size()!=0 )
-			scoreNER = nnNER/((double)candSentNers.size() + choiceNers.size());
+		if(candSentNers.size()+choiceNers.size()-nnNER!=0 )
+			scoreNER = nnNER/((double)candSentNers.size() + choiceNers.size()-nnNER);
 		
 		
 		for (int k = 0; k < candSentDependencies.size(); k++) {
@@ -124,8 +124,8 @@ public class AnswerScoreBaseClass extends JCasAnnotator_ImplBase {
 			}
 		}
 		
-		if(candSentDependencies.size()+choiceDependencies.size()!=0 )
-			scoreDependency = nnDependency/((double)candSentDependencies.size() + choiceDependencies.size());
+		if(candSentDependencies.size()+choiceDependencies.size() - nnDependency!=0 )
+			scoreDependency = nnDependency/((double)candSentDependencies.size() + choiceDependencies.size()- nnDependency);
 		
 		double ans = (scoreDependency + scoreNER + scoreNounPhrase)/3;
 //		System.out.println("***" + ans +"**");
