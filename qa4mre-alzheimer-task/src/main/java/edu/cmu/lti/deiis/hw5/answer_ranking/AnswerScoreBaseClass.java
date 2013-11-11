@@ -69,12 +69,60 @@ public class AnswerScoreBaseClass extends JCasAnnotator_ImplBase {
     return (double) nnMatch;
   }
 
+	public double computeJaccardSimilarityScore(Answer answer,
+			CandidateSentence sentence) {
+		ArrayList<NounPhrase> candSentNouns = Utils.fromFSListToCollection(
+				sentence.getSentence().getPhraseList(), NounPhrase.class);
+		ArrayList<NER> candSentNers = Utils.fromFSListToCollection(sentence
+				.getSentence().getNerList(), NER.class);
+		ArrayList<NounPhrase> choiceNouns = Utils.fromFSListToCollection(
+				answer.getNounPhraseList(), NounPhrase.class);
+		ArrayList<NER> choiceNERs = Utils.fromFSListToCollection(
+				answer.getNerList(), NER.class);
+
+		int nnMatch = 0;
+		for (int k = 0; k < candSentNouns.size(); k++) {
+			for (int l = 0; l < choiceNERs.size(); l++) {
+				if (candSentNouns.get(k).getText()
+						.contains(choiceNERs.get(l).getText())) {
+					nnMatch++;
+				}
+			}
+			for (int l = 0; l < choiceNouns.size(); l++) {
+				if (candSentNouns.get(k).getText()
+						.contains(choiceNouns.get(l).getText())) {
+					nnMatch++;
+				}
+			}
+		}
+
+		for (int k = 0; k < candSentNers.size(); k++) {
+			for (int l = 0; l < choiceNERs.size(); l++) {
+				if (candSentNouns.get(k).getText()
+						.contains(choiceNERs.get(l).getText())) {
+					nnMatch++;
+				}
+			}
+			for (int l = 0; l < choiceNouns.size(); l++) {
+				if (candSentNouns.get(k).getText()
+						.contains(choiceNouns.get(l).getText())) {
+					nnMatch++;
+				}
+			}
+
+		}
+		return (double) nnMatch;
+	}
+  
+  
   /*
    * Implement this function by assigning score to some field of candidateAnswer
    */
   public void processCandidateAnswerScore(CandidateAnswer candidateAnswer,
           CandidateSentence sentence, Answer answer) {
-    candidateAnswer.setSimilarityScore(computScore(answer, sentence));
+	 
+   //candidateAnswer.setSimilarityScore(computScore(answer, sentence));
+	  candidateAnswer.setSimilarityScore(computeJaccardSimilarityScore(answer, sentence));
   }
 
   @Override
