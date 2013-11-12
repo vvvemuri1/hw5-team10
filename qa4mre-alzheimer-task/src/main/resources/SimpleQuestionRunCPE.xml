@@ -56,9 +56,9 @@
         <node>AnswerScoreBaseClass</node>
         <!-- <node>AnswerChoiceCandAnsSynonymScorer</node>-->
         <!--<node>AnswerChoiceCandAnsPMIScorer</node>-->
+        <node>AnswerChoiceCandAnsCosineSimilarity</node>
+      <node>AnswerChoiceCandAnsDiceCoefficient</node>
         <node>AnswerSelectionByKCandVoting</node>
-      <node>AnswerChoiceCandAnsCosineSimilarity</node>
-        <node>AnswerChoiceCandAnsDiceCoefficient</node>
       </fixedFlow>
     </flowConstraints>
     <typePriorities/>

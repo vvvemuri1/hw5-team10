@@ -2,7 +2,9 @@ package edu.cmu.lti.deiis.hw5.answer_ranking;
 
 import java.util.HashSet;
 import java.util.StringTokenizer;
+
 import edu.cmu.lti.qalab.types.Answer;
+import edu.cmu.lti.qalab.types.CandidateAnswer;
 import edu.cmu.lti.qalab.types.CandidateSentence;
 
 public class AnswerChoiceCandAnsDiceCoefficient extends AnswerScoreBaseClass
@@ -10,15 +12,22 @@ public class AnswerChoiceCandAnsDiceCoefficient extends AnswerScoreBaseClass
   @Override
   public double computScore(Answer answer, CandidateSentence sentence) 
   {
-	  String answerText = answer.getCoveredText();
+	  String answerText = answer.getText();
+	  String sentenceText = sentence.get;
 	  
-	  System.out.println("Answer Text: " + answerText);
-	  String sentenceText = sentence.getCoveredText();
+	  System.out.println("Sentence: " + sentenceText);
 	
 	  HashSet<String> answerBigrams = createBigrams(answerText);
 	  HashSet<String> sentenceBigrams = createBigrams(sentenceText);
 	  
 	  return computeCosineSimilarity(answerBigrams, sentenceBigrams);
+  }
+  
+  @Override
+  public void processCandidateAnswerScore(CandidateAnswer candidateAnswer,
+          CandidateSentence sentence, Answer answer) 
+  {
+	  candidateAnswer.setSimilarityScore(computScore(answer, sentence));
   }
   
   /**
