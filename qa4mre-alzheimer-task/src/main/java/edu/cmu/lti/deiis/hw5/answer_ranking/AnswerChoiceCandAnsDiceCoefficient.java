@@ -13,14 +13,22 @@ public class AnswerChoiceCandAnsDiceCoefficient extends AnswerScoreBaseClass
   public double computScore(Answer answer, CandidateSentence sentence) 
   {
 	  String answerText = answer.getText();
-	  String sentenceText = sentence.get;
+	  String sentenceText = sentence.getSentence().getText();
 	  
+	  System.out.println("Dice");
+	  System.out.println("Answer Text: " + answerText);
 	  System.out.println("Sentence: " + sentenceText);
 	
 	  HashSet<String> answerBigrams = createBigrams(answerText);
 	  HashSet<String> sentenceBigrams = createBigrams(sentenceText);
 	  
-	  return computeCosineSimilarity(answerBigrams, sentenceBigrams);
+	  System.out.println("Answer Bigrams: " + answerBigrams);
+	  System.out.println("Sentence Bigrams: " + sentenceBigrams);
+	  
+	  System.out.println("Score: " + computeDiceCoefficient(answerBigrams, sentenceBigrams));
+	  System.out.println();
+	  
+	  return computeDiceCoefficient(answerBigrams, sentenceBigrams);
   }
   
   @Override
@@ -36,7 +44,7 @@ public class AnswerChoiceCandAnsDiceCoefficient extends AnswerScoreBaseClass
    * @param bigrams2 Second set of bigrams
    * @return Computed Dice coefficient value.
    */
-  private double computeCosineSimilarity(HashSet<String> bigrams1, 
+  private double computeDiceCoefficient(HashSet<String> bigrams1, 
 		  HashSet<String> bigrams2) 
   {
       HashSet<String> intersection = new HashSet<String>(bigrams1);

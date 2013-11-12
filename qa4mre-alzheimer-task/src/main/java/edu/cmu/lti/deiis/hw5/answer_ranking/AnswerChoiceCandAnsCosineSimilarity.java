@@ -1,9 +1,12 @@
 package edu.cmu.lti.deiis.hw5.answer_ranking;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
+
 import edu.cmu.lti.qalab.types.Answer;
+import edu.cmu.lti.qalab.types.CandidateAnswer;
 import edu.cmu.lti.qalab.types.CandidateSentence;
 
 public class AnswerChoiceCandAnsCosineSimilarity extends AnswerScoreBaseClass
@@ -11,13 +14,30 @@ public class AnswerChoiceCandAnsCosineSimilarity extends AnswerScoreBaseClass
   @Override
   public double computScore(Answer answer, CandidateSentence sentence) 
   {
-	  String answerText = answer.getCoveredText();
-	  String sentenceText = sentence.getCoveredText();
+	  String answerText = answer.getText();
+	  String sentenceText = sentence.getSentence().getText();
 	  
+	  System.out.println("Cosine");
+	  System.out.println("Answer Text: " + answerText);
+	  System.out.println("Sentence: " + sentenceText);
+		  
 	  HashMap<String, Integer> termFrequencyVector1 = createTermFreqVector(answerText);
 	  HashMap<String, Integer> termFrequencyVector2 = createTermFreqVector(sentenceText);
 	  
+	  System.out.println("Answer Term Freq Vec 1: " + termFrequencyVector1);
+	  System.out.println("Answer Term Freq Vec 2: " + termFrequencyVector2);
+	  
+	  System.out.println("Score: " + computeCosineSimilarity(termFrequencyVector1, termFrequencyVector2));
+	  System.out.println();
+	  
 	  return computeCosineSimilarity(termFrequencyVector1, termFrequencyVector2);
+  }
+  
+  @Override
+  public void processCandidateAnswerScore(CandidateAnswer candidateAnswer,
+          CandidateSentence sentence, Answer answer) 
+  {
+	  candidateAnswer.setSimilarityScore(computScore(answer, sentence));
   }
   
  /**
@@ -32,9 +52,12 @@ public class AnswerChoiceCandAnsCosineSimilarity extends AnswerScoreBaseClass
 	  double termFrequencyVector2Mag = 0;
 	  
 	  Set<String> terms = termFrequencyVector1.keySet();
-	  terms.addAll(termFrequencyVector2.keySet());
+	  HashSet<String> termSet = new HashSet<String>();
 	  
-	  for (String term : terms)
+	  termSet.addAll(terms);
+	  termSet.addAll(termFrequencyVector2.keySet());
+	  
+	  for (String term : termSet)
 	  {
 		  if (termFrequencyVector1.containsKey(term) && termFrequencyVector2.containsKey(term))
 		  {
@@ -89,8 +112,6 @@ public class AnswerChoiceCandAnsCosineSimilarity extends AnswerScoreBaseClass
         	  termFrequencyVector.put(tokenText, 1);
           }
       }
-      
-      System.out.println(termFrequencyVector);
       
       return termFrequencyVector;
   }
