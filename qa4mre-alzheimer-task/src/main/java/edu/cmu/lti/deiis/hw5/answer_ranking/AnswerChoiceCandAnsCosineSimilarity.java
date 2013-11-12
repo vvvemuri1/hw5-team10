@@ -11,7 +11,7 @@ import edu.cmu.lti.qalab.types.CandidateSentence;
 
 public class AnswerChoiceCandAnsCosineSimilarity extends AnswerScoreBaseClass
 {
-  boolean showInfo = true;
+  boolean showInfo = false;
 	
   @Override
   public double computScore(Answer answer, CandidateSentence sentence) 
