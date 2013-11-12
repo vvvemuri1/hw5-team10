@@ -11,25 +11,32 @@ import edu.cmu.lti.qalab.types.CandidateSentence;
 
 public class AnswerChoiceCandAnsCosineSimilarity extends AnswerScoreBaseClass
 {
+  boolean showInfo = true;
+	
   @Override
   public double computScore(Answer answer, CandidateSentence sentence) 
   {
 	  String answerText = answer.getText();
 	  String sentenceText = sentence.getSentence().getText();
 	  
-	  System.out.println("Cosine");
-	  System.out.println("Answer Text: " + answerText);
-	  System.out.println("Sentence: " + sentenceText);
-		  
+	  if (showInfo)
+	  {
+		  System.out.println("Cosine");
+		  System.out.println("Answer Text: " + answerText);
+		  System.out.println("Sentence: " + sentenceText);
+	  }
+	  		  
 	  HashMap<String, Integer> termFrequencyVector1 = createTermFreqVector(answerText);
 	  HashMap<String, Integer> termFrequencyVector2 = createTermFreqVector(sentenceText);
 	  
-	  System.out.println("Answer Term Freq Vec 1: " + termFrequencyVector1);
-	  System.out.println("Answer Term Freq Vec 2: " + termFrequencyVector2);
-	  
-	  System.out.println("Score: " + computeCosineSimilarity(termFrequencyVector1, termFrequencyVector2));
-	  System.out.println();
-	  
+	  if (showInfo)
+	  {
+		  System.out.println("Answer Term Freq Vec 1: " + termFrequencyVector1);
+		  System.out.println("Answer Term Freq Vec 2: " + termFrequencyVector2);
+		  System.out.println("Score: " + computeCosineSimilarity(termFrequencyVector1, termFrequencyVector2));
+		  System.out.println();
+	  }
+	  	  
 	  return computeCosineSimilarity(termFrequencyVector1, termFrequencyVector2);
   }
   

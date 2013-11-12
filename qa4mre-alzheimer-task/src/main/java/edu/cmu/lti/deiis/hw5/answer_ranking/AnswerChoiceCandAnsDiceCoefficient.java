@@ -9,24 +9,31 @@ import edu.cmu.lti.qalab.types.CandidateSentence;
 
 public class AnswerChoiceCandAnsDiceCoefficient extends AnswerScoreBaseClass
 {
+  boolean showInfo = true;
+	
   @Override
   public double computScore(Answer answer, CandidateSentence sentence) 
   {
 	  String answerText = answer.getText();
 	  String sentenceText = sentence.getSentence().getText();
 	  
-	  System.out.println("Dice");
-	  System.out.println("Answer Text: " + answerText);
-	  System.out.println("Sentence: " + sentenceText);
-	
+	  if (showInfo)
+	  {
+		  System.out.println("Dice");
+		  System.out.println("Answer Text: " + answerText);
+		  System.out.println("Sentence: " + sentenceText);
+	  }
+	 
 	  HashSet<String> answerBigrams = createBigrams(answerText);
 	  HashSet<String> sentenceBigrams = createBigrams(sentenceText);
 	  
-	  System.out.println("Answer Bigrams: " + answerBigrams);
-	  System.out.println("Sentence Bigrams: " + sentenceBigrams);
-	  
-	  System.out.println("Score: " + computeDiceCoefficient(answerBigrams, sentenceBigrams));
-	  System.out.println();
+	  if (showInfo)
+	  {
+		  System.out.println("Answer Bigrams: " + answerBigrams);
+		  System.out.println("Sentence Bigrams: " + sentenceBigrams);		  
+		  System.out.println("Score: " + computeDiceCoefficient(answerBigrams, sentenceBigrams));
+		  System.out.println();
+	  }
 	  
 	  return computeDiceCoefficient(answerBigrams, sentenceBigrams);
   }

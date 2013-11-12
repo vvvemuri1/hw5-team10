@@ -36,7 +36,7 @@ public class AnswerSelectionByKCandVoting extends JCasAnnotator_ImplBase {
     for (CandidateSentence sent : sents) {
       CandidateAnswer candAns = sent.getCandAnswer();
       double totalScore = candAns.getSimilarityScore() + candAns.getSynonymScore()
-              + candAns.getPMIScore();
+              + candAns.getPMIScore() + candAns.getCosineSimilarityScore() + candAns.getDiceCoefficientScore();
       if (totalScore > bestScore)
         bestScore = totalScore;
     }
