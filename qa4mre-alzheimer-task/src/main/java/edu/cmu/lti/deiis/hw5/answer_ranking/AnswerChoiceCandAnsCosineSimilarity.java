@@ -37,7 +37,7 @@ public class AnswerChoiceCandAnsCosineSimilarity extends AnswerScoreBaseClass
   public void processCandidateAnswerScore(CandidateAnswer candidateAnswer,
           CandidateSentence sentence, Answer answer) 
   {
-	  candidateAnswer.setSimilarityScore(computScore(answer, sentence));
+	  candidateAnswer.setDiceCoefficientScore(computScore(answer, sentence));
   }
   
  /**

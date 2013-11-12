@@ -12,8 +12,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Sat Nov 09 21:17:38 EST 2013
- * XML source: /Users/troy/git/hw5-team10/qa4mre-base/src/main/resources/TypeSystemDescriptor.xml
+ * Updated by JCasGen Mon Nov 11 21:09:04 EST 2013
+ * XML source: /Users/vvvemuri1/git/hw5-team10/qa4mre-base/src/main/resources/TypeSystemDescriptor.xml
  * @generated */
 public class Answer extends Annotation {
   /** @generated
